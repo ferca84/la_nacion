@@ -1,6 +1,15 @@
 # la_nacion
 Ejercicios de Prueba para La Nación
 
+El repositorio tiene 2 carpetas, 1erEjercicio y 2doEjercicio.
+
+1erEjercicio: Está el codigo fuente del proyecto en React Js, usando como framework para el renderizado en el servidor Next Js.
+
+2doEjercicio: Está el archivo y sus test, donde se resuelve el algoritmo solicitado (dado un array de números...).
+
+
+Preguntas a Responder
+
 •	¿De qué forma guardarías los archivos que un usuario suba por la aplicación al servidor y porque?
 
 Los archivos que suben los usuarios los almacenaría en el disco, guardando solamente una referencia a la posición de la imagen en una tabla. 
