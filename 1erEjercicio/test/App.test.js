@@ -1,7 +1,6 @@
 import { shallow, mount } from 'enzyme'
 import React from "react";
 
-import indexPage from "../pages/index.js";
 import Title from "../components/Title.js";
 import SidebarMain from '../components/SidebarMain.js';
 import {data} from './dummy-articles'
@@ -11,7 +10,7 @@ import TagItem from '../components/TagItem.js';
 import ListArticle from '../components/ListArticle.js';
 import Article from '../components/Article.js';
 import { dateConvertByHand } from '../utils/functions.js';
-import ButtonSeeMore from '../components/ButtonSeeMore.js';
+
 
 
 describe("<Conversor de Fecha>", () => {
@@ -46,7 +45,7 @@ describe("<TagsMenu>", () => {
             <TagsMenu />
         </ArticlesContext.Provider>);
 
-        expect(wrapper.find(TagItem).first().props().slug).toBe("/tema/huevo-tid47236");
+        expect(wrapper.find(TagItem).first().props().slug).toBe("huevo-tid47236");
       });
   });
 
