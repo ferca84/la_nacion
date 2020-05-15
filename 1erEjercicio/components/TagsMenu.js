@@ -1,15 +1,9 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import ArticlesContext from '../components/context/articlesContext'
 import TagItem from './TagItem';
+import { sortByCantidadAndFirstLetters } from '../utils/functions';
 
 const TagsMenu = () => {
-
-    //estado interno para evaluar si el componente ha sido montado o no para evitar dif entre server render y client render
-    const [isMounted, setIsMounted] = useState(false)
-
-    useEffect(() => {
-        setIsMounted(true)
-    }, [])
 
     const {articles} = useContext(ArticlesContext)
 
@@ -24,24 +18,20 @@ const TagsMenu = () => {
         return data;
     }, {})
 
-    //Obtengo los primeros 10 elementos de un array de tags ordenados de mayor a menor segun su cantidad de aparaciones
-    const tagsSorted = Object.keys(group).sort(function (a, b) { return group[b].cantidad - group[a].cantidad })
-                                         .map(slug => group[slug])
-                                         .slice(0, 10);
-
+    //Obtengo los primeros 10 elementos de un array de tags ordenados de mayor a menor segun su cantidad de aparaciones y sus primeras dos letras del texto
+    const tagsSorted = sortByCantidadAndFirstLetters(Object.keys(group), group).map(slug => group[slug])
+                                                                               .slice(0, 10);
+   
     const renderTags = tags => {
         return tags.map((item,i) => {
-            return <TagItem key={i} slug={item.tag.slug}>{item.tag.text}</TagItem>
+            return <TagItem key={item.tag.slug} slug={item.tag.slug}>{item.tag.text}</TagItem>
         })
     }
 
     return (
         <div className="row">
             <div id="" className="cont_tags com-secondary-tag hlp-marginBottom-20">
-                {
-                //preguntar si el componente esta montado para renderizar correctamente los tags, sino habia inconsistencias entre server y client
-                isMounted && renderTags(tagsSorted)
-                }
+                {renderTags(tagsSorted)}
             </div>
         </div>
     )

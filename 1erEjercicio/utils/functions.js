@@ -10,3 +10,7 @@ export function dateConvertByHand(fecha) {
     const fechaJS = new Date(fecha);
     return fechaJS.getDate() + 1 + " de " + meses[fechaJS.getMonth()] + " de " + fechaJS.getFullYear();
   }
+
+export const sortByCantidadAndFirstLetters = (array, group) => { 
+    return  array.sort((a,b) => group[b].cantidad - group[a].cantidad || group[a].tag.text.charCodeAt(0) - group[b].tag.text.charCodeAt(0) || group[a].tag.text.charCodeAt(1) - group[b].tag.text.charCodeAt(1)) 
+}

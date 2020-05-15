@@ -615,7 +615,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(f
 
 /***/ }),
 
-/***/ 2:
+/***/ 1:
 /*!************************************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F_error&absolutePagePath=E%3A%5CWeb%5Cxampp%5Chtdocs%5Cla_nacion%5Cla_nacion%5C1erEjercicio%5Cpages%5C_error.js&hotRouterUpdates=false ***!
   \************************************************************************************************************************************************************************************/
@@ -638,4 +638,4 @@ eval("module.exports = dll_c2e10d183b950a67d9e7;//# sourceURL=[module]\n//# sour
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]);
+},[[1,"static/runtime/webpack.js"]]]);

@@ -1,0 +1,1 @@
+{"ast":null,"code":"var __jsx = React.createElement;\nimport React from 'react';\nimport Link from 'next/link';\n\nvar TagItem = function TagItem(props) {\n  return __jsx(Link, {\n    href: \"/tema/[slug]\",\n    as: \"/tema/\".concat(props.slug)\n  }, __jsx(\"a\", null, props.children));\n};\n\nexport default TagItem;","map":null,"metadata":{},"sourceType":"module"}
