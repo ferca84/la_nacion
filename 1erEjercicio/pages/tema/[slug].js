@@ -18,20 +18,16 @@ export default ({slug}) => {
 }
 
 export async function getStaticProps({params}) {
+  // Se busca la data necesaria para el slug que esta en el parametro
   const slug = params.slug;
   return { props: { slug } }
 }
 
 export async function getStaticPaths() {
-  const slugs = getSlugs()
+  //Retorna una lista de posibles valores de slug (por ahora dummy slugs)
+  const paths = getSlugs();
   return {
-    paths: slugs.map(slug => {
-      return {
-        params: {
-          slug: slug,
-        },
-      }
-    }),
+    paths,
     fallback: true,// Habilita generación de paginas staticas adicionales
   }
 }

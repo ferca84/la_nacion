@@ -4,13 +4,13 @@ import ArticlesContext from '../components/context/articlesContext'
 
 const ListArticle = (props) => {
 
-    const context = useContext(ArticlesContext)
+    const {articles, expanded} = useContext(ArticlesContext)
 
-    const articlesFiltered = context.articles.filter((art => art.subtype === "7"))
+    const articlesFiltered = articles.filter((art => art.subtype === "7"))
 
     const renderArticles = articles => {
         //Si el usuario presiono el botón ver mas articulos, se muestran todos, sino solo los primeros 8
-        const articlesToShow = props.expanded ? articles : articles.slice(0, 8);
+        const articlesToShow = expanded ? articles : articles.slice(0, 8);
         return articlesToShow.map(article => {
             return <Article key={article._id} article={article} />
         })

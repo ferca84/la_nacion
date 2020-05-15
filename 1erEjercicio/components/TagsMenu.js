@@ -11,10 +11,10 @@ const TagsMenu = () => {
         setIsMounted(true)
     }, [])
 
-    const context = useContext(ArticlesContext)
+    const {articles} = useContext(ArticlesContext)
 
     //Creo un único array con todos los tags de cada artículo
-    const singleArray = context.articles.reduce((data, articulo) => {
+    const singleArray = articles.reduce((data, articulo) => {
         return data.concat(articulo.taxonomy.tags)
     }, []);
 
@@ -31,7 +31,7 @@ const TagsMenu = () => {
 
     const renderTags = tags => {
         return tags.map((item,i) => {
-            return <TagItem key={i} slug={`/tema/${item.tag.slug}`}>{item.tag.text}</TagItem>
+            return <TagItem key={i} slug={item.tag.slug}>{item.tag.text}</TagItem>
         })
     }
 
@@ -39,7 +39,7 @@ const TagsMenu = () => {
         <div className="row">
             <div id="" className="cont_tags com-secondary-tag hlp-marginBottom-20">
                 {
-                //preguntar si el componente esta montado para renderizar correctamente los tags, sino habia inconsistencias
+                //preguntar si el componente esta montado para renderizar correctamente los tags, sino habia inconsistencias entre server y client
                 isMounted && renderTags(tagsSorted)
                 }
             </div>

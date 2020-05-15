@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import BannerTop from '../components/BannerTop'
 import SidebarRight from '../components/SidebarRight'
 import SidebarMain from '../components/SidebarMain'
@@ -8,6 +8,8 @@ import { getArticles } from '../lib/api'
 
 const indexPage = ({ articles }) => {
    
+    const [expanded, setExpanded] = useState(false)
+
     return (
         <main>
 
@@ -15,7 +17,7 @@ const indexPage = ({ articles }) => {
 
             <div className="lay-sidebar">
             
-                <ArticlesContext.Provider value={{ articles }}>
+                <ArticlesContext.Provider value={{ articles, expanded, setExpanded }}>
                     <SidebarMain />
                 </ArticlesContext.Provider>
 
