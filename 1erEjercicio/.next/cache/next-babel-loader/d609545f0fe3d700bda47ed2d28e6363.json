@@ -1,0 +1,1 @@
+{"ast":null,"code":"import React from \"react\";\nvar __jsx = React.createElement;\nimport '../styles/site.css'; // Este export default es requerido para agregar estilos globales a toda la aplicación\n\nexport default function MyApp({\n  Component,\n  pageProps\n}) {\n  return __jsx(Component, pageProps);\n}","map":null,"metadata":{},"sourceType":"module"}
