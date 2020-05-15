@@ -1,0 +1,99 @@
+<html>
+
+	<head>
+		<title>Ejercicio de La Nación</title>
+		
+		<style>
+		
+		code {
+			padding: 15px;
+			background-color: #ccc;
+			margin: 5px;
+			display: inline-block;
+		}
+		
+		#contenedor {
+			margin: 20px;
+			background-color: #efefef;
+			padding: 20px;
+		}
+		
+		button {
+			display: block;
+			margin: 0 auto;
+			padding: 15px;
+			background-color: #6299fb;
+			color: white;
+			border: none;
+			font-size: larger;
+			cursor: pointer;
+		}
+		</style>
+	</head>
+
+	<body>
+
+		<h1>Ejercicio para La Nación</h1>
+
+		<h2>Consigna</h2>
+		<p>Se debe entregar el código fuente (o repo git) junto con la documentación que crea necesaria para comunicar el diseño, si lo considera útil, también se pueden agregar test unitarios.</p>
+		<p>Escriba un script que a partir de un array de ints devuelva un array de strings aplicando las siguientes reglas:</p>
+		<ol>
+			<li>Devuelve Fizz si el número es divisible por 3 o si incluye un 3 en el número.</li>
+			<li>Devuelve Buzz si el número es divisible por 5 o si incluye un 5 en el número.</li>
+			<li>Devuelve FizzBuzz si el número es divisible por 3 y por 5. </li>
+			<li>Puedes utilizar cualquier lenguaje que consideres apropiado.</li>
+		</ol>
+		
+		<h2>Suposiciones mías</h2>
+		<ol>
+			<li>En el caso que un número no cumpla ninguna condición, retorno un string vacio (Ej: 1 retorno '')</li>
+			<li>Si un número cumple con la condicion 1 y 2 al mismo tiempo, pero no la 3, aplico la 1 (Ej: 53 incluye 3 pero no es divisible por 3, incluye un 5 pero no es divisible por 5, cumple 2 condiciones, pero aplico la del 3)</li>
+		</ol>
+
+		<button onclick="probar()">Iniciar Prueba</button>
+		
+		<div id="contenedor">
+			<div>
+				<h3>Ejemplo 1:</h3>
+				<p>Dado este array númerico:</p>
+				<code>const	arrayDeNumeros1	= [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];</code>
+				<p>El algoritmo retorna el siguiente array de strings:</p>
+				<code id="respuesta1"></code>
+			</div>
+			
+			<div>
+				<h3>Ejemplo 2:</h3>
+				<p>Dado este array númerico:</p>
+				<code>const	arrayDeNumeros2	= [30, 31, 32, 33, 34, 35, 50, 51, 52, 53, 54, 55, 56, 57, 58];</code>
+				<p>El algoritmo retorna el siguiente array de strings:</p>
+				<code id="respuesta2"></code>
+			</div>
+		</div>
+	</body>
+
+	<script src="modifyArray.js"></script>
+	<script>
+		function probar() {
+			//const modifyArray = require("../modifyArray.js");
+			const arrayDeNumeros1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+			const arrayDeStrings1 = modifyArray(arrayDeNumeros1);
+			
+			document.getElementById("respuesta1").textContent = '[' + arrayDeStrings1 + ']';
+			
+			console.log('Array Numerico: ' + arrayDeNumeros1);
+			console.log('Array de Strings: ' + arrayDeStrings1);
+			
+			
+			const arrayDeNumeros2 = [30, 31, 32, 33, 34, 35, 50, 51, 52, 53, 54, 55, 56, 57, 58];
+			const arrayDeStrings2 = modifyArray(arrayDeNumeros2);
+			
+			document.getElementById("respuesta2").textContent = '[' + arrayDeStrings2 + ']';
+			
+			console.log('Array Numerico: ' + arrayDeNumeros2);
+			console.log('Array de Strings: ' + arrayDeStrings2);
+		
+		}
+
+	</script>
+</html>
