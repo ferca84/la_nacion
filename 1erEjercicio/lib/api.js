@@ -8,9 +8,13 @@ async function fetchAPI(url, options) {
 
     const res = await fetch(url, options)
 
-    const json = await res.json()
+    if (res.status !== 200) {
+       return {status: 'error', message: 'Ha ocurrido un error'}
+    }
 
-    return json;
+    const data = await res.json()
+
+    return data;
 
   } catch (err) {
     console.log('Catch error: ' + err);
@@ -19,9 +23,9 @@ async function fetchAPI(url, options) {
 }
 
 export async function getArticles() {
-  const json = await fetchAPI(API_URL, { method: 'GET' });
-  //Si llegara a encontrar problemas, paso un array vacio para que el resto de la página se renderize
-  return !json.error ? json.articles : [];
+  const data = await fetchAPI(API_URL, { method: 'GET' });
+  //Si no hay articulos, es que hubo un error
+  return data.articles ? data.articles : data ;
 }
 
 export function getSlugs() {

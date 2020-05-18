@@ -1,35 +1,25 @@
-import React, {useState} from 'react'
-import BannerTop from '../components/BannerTop'
-import SidebarRight from '../components/SidebarRight'
+import React, { useState } from 'react'
 import SidebarMain from '../components/SidebarMain'
 import ArticlesContext from "../components/context/articlesContext";
 import { getArticles } from '../lib/api'
+import Layout from '../components/Layout';
 
 
 const indexPage = ({ articles }) => {
-   
+
     const [expanded, setExpanded] = useState(false)
 
     return (
-        <main>
-
-            <BannerTop />
-
-            <div className="lay-sidebar">
-            
-                <ArticlesContext.Provider value={{ articles, expanded, setExpanded }}>
-                    <SidebarMain />
-                </ArticlesContext.Provider>
-
-                <SidebarRight />
-
-            </div>
-        </main>
+        <Layout>
+            <ArticlesContext.Provider value={{ articles, expanded, setExpanded }}>
+                <SidebarMain />
+            </ArticlesContext.Provider>
+        </Layout>
     )
 }
 
 //function que es llamada en cada request de la página. Solo será renderizada cuando esten los datos (mejor para el SEO)
-export async function getStaticProps() {
+export async function getStaticProps(context) {
     const articles = await getArticles();
     // Le envio a la página los articulos via props
     return { props: { articles } }

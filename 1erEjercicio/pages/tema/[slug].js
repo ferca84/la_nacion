@@ -1,23 +1,18 @@
-import { useRouter } from 'next/router'
 import { getSlugs } from '../../lib/api'
+import Layout from '../../components/Layout'
 
-export default ({slug}) => {
-
-  const router = useRouter()
-
-  // Si la pagina todavia no fue generada, se mostrara esto hasta tanto getStaticProps termine
-  if (router.isFallback) {
-    return <div>Cargando...</div>
-  }
+export default ({ slug }) => {
 
   return (
-    <>
-      <h1 className="com-title-section-xl hlp-marginBottom-40">Slug Buscado {slug}</h1>
-    </>
+      <Layout>
+        <div className="sidebar__main">
+          <h1 className="com-title-section-xl hlp-marginBottom-40">Slug Buscado {slug}</h1>
+        </div>
+      </Layout>
   )
 }
 
-export async function getStaticProps({params}) {
+export async function getStaticProps({ params }) {
   // Se busca la data necesaria para el slug que esta en el parametro
   const slug = params.slug;
   return { props: { slug } }

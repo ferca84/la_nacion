@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import Article from './Article'
 import ArticlesContext from '../components/context/articlesContext'
 
-const ListArticle = (props) => {
+const ListArticle = () => {
 
     const {articles, expanded} = useContext(ArticlesContext)
 

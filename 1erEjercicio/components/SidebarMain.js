@@ -5,11 +5,10 @@ import ListArticle from './ListArticle';
 import ButtonSeeMore from './ButtonSeeMore';
 
 const SidebarMain = () => {
-    
+
 
     return (
-        <div className="sidebar__main">
-
+        <>
             <Title>Acumulado Grilla</Title>
 
             <TagsMenu />
@@ -18,7 +17,7 @@ const SidebarMain = () => {
 
             <ButtonSeeMore />
 
-        </div>
+        </>
     )
 };
 
